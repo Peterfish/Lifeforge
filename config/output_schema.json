@@ -1,0 +1,19 @@
+// config/output_schema.json
+{
+  "Characters": [
+    {
+      "character_id": "string",
+      "character_name": "string",
+      "character_profession": "string",
+      "bio_detail": "string"
+    }
+  ],
+  "Locations": [
+    {
+      "location_id": "string",
+      "location_name": "string",
+      "location_type": "string",
+      "location_detail": "string"
+    }
+  ]
+}
