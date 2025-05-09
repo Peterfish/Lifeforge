@@ -78,7 +78,23 @@ class ChromaDBManager:
             print(f"No new {type_name} to add to '{collection.name}'. All provided IDs already exist.")
 
     def add_characters(self, characters_data: list[dict]):
-        self._add_data_to_collection(self.character_collection, characters_data, "character_id", "bio_detail", "characters")
+        # สร้าง characters_data ใหม่โดยเพิ่ม search_text สำหรับค้นหา
+        enhanced_characters = []
+        for char in characters_data:
+            char_copy = dict(char)
+            # สร้าง document ใหม่ที่ให้น้ำหนักกับ profession มากขึ้น 10 เท่า
+            profession_emphasis = " ".join([char['character_profession']] * 10)  # ซ้ำ 10 ครั้ง
+            char_copy["search_text"] = f"{char['character_name']} {profession_emphasis} {char['bio_detail']}"
+            enhanced_characters.append(char_copy)
+        
+        # ใช้ search_text แทน bio_detail
+        self._add_data_to_collection(
+            self.character_collection, 
+            enhanced_characters, 
+            "character_id", 
+            "search_text", 
+            "characters"
+        )
 
     def add_locations(self, locations_data: list[dict]):
         self._add_data_to_collection(self.location_collection, locations_data, "location_id", "location_detail", "locations")

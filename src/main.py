@@ -15,10 +15,8 @@ def initialize_system():
     print("\nInitializing ChromaDB Manager...")
     chroma_manager = ChromaDBManager()
     
-    # Simplified data loading: always attempt to load from JSON.
-    # The add_X methods in ChromaDBManager now prevent duplicates.
     print("\nLoading data into ChromaDB (will skip existing entries)...")
-    data_file = os.getenv("SAMPLE_DATA_PATH", "data/sample_data.json") # Assuming .env might define this
+    data_file = os.getenv("SAMPLE_DATA_PATH", "data/sample_data.json")
     chroma_manager.load_data_from_json(json_file_path=data_file)
         
     print("\nInitializing LLM Story Context Generator (this may take a while for model loading)...")
@@ -32,30 +30,27 @@ def main():
 
     while True:
         print("\n==================================================")
-        story_details_prompt = input("ป้อนรายละเอียดเนื้อเรื่อง (หรือพิมพ์ 'exit' เพื่อจบ): ")
+        # Changed prompt to English
+        story_details_prompt = input("Enter story details (or type 'exit' to quit): ")
         print("==================================================")
 
         if not story_details_prompt.strip():
-            print("ไม่ได้ป้อนรายละเอียดเนื้อเรื่อง ลองใหม่อีกครั้ง")
+            # Changed message to English
+            print("No story details entered. Please try again.")
             continue
         
         if story_details_prompt.lower() == 'exit':
-            print("กำลังออกจากโปรแกรม...")
+            # Changed message to English
+            print("Exiting application...")
             break
 
-        print(f"\nกำลังประมวลผลเนื้อเรื่อง: '{story_details_prompt}'...")
-        print("AI (LLM) กำลังตัดสินใจว่าจะค้นหาข้อมูลอะไรจากฐานข้อมูล...")
+        # Changed message to English
+        print(f"\nProcessing story idea: '{story_details_prompt}'...")
+        print("AI (LLM) is deciding what information to retrieve from the database...")
 
-        # LLM-driven RAG using StoryContextGenerator
         final_output_from_llm = story_generator.generate_story_elements(story_details_prompt)
         
-        # Ensure the output structure is as expected by schema/place.and.characters.spec.schema.json
-        # The LLM's output (final_output_from_llm) should already be in the correct format
-        # based on how _execute_tool_call accumulates results.
-        # We just need to make sure the top-level keys are present.
-
         output_characters = []
-        # The LLM results are already lists of full dicts from ChromaDB metadata
         if final_output_from_llm.get("Characters"):
             for char_meta in final_output_from_llm["Characters"]:
                 output_characters.append({
@@ -63,7 +58,6 @@ def main():
                     "character_name": char_meta.get("character_name", "N/A"),
                     "character_profession": char_meta.get("character_profession", "N/A"),
                     "bio_detail": char_meta.get("bio_detail", "N/A")
-                    # "similarity_score": char_meta.get("similarity_score") # Can be included if needed
                 })
 
         output_locations = []
@@ -74,7 +68,6 @@ def main():
                     "location_name": loc_meta.get("location_name", "N/A"),
                     "location_type": loc_meta.get("location_type", "N/A"),
                     "location_detail": loc_meta.get("location_detail", "N/A")
-                    # "similarity_score": loc_meta.get("similarity_score") # Can be included if needed
                 })
             
         structured_output_for_display = {
@@ -82,14 +75,16 @@ def main():
             "Locations": output_locations
         }
         
-        print("\n--- ผลลัพธ์จาก AI (รูปแบบ JSON) ---")
-        print(json.dumps(structured_output_for_display, indent=2, ensure_ascii=False))
-        print("----------------------------------")
+        # Changed message to English
+        print("\n--- AI Output (JSON format) ---")
+        print(json.dumps(structured_output_for_display, indent=2, ensure_ascii=False)) # ensure_ascii=False is good for Thai names if they were mixed
+        print("-----------------------------")
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"เกิดข้อผิดพลาดร้ายแรงในโปรแกรมหลัก: {e}")
+        # Changed message to English
+        print(f"A critical error occurred in the main application: {e}")
         import traceback
         traceback.print_exc()

@@ -1,43 +1,78 @@
-// data/sample_data.json
 {
   "characters": [
     {
-      "character_id": "char_001",
-      "character_name": "ธนา",
-      "character_profession": "นักสำรวจ",
-      "bio_detail": "นักสำรวจผู้กล้าหาญที่เดินทางข้ามป่าเขาเพื่อค้นหาเมืองโบราณที่ซ่อนสมบัติล้ำค่า"
+      "character_id": "char_F001",
+      "character_name": "Priya S.",
+      "character_profession": "Marketing Manager",
+      "bio_detail": "Ambitious and driven, Priya is a rising star at 'Bangkok Central Solutions'. She's rumored to be in a complicated relationship with a senior figure, navigating office politics and her own heart."
     },
     {
-      "character_id": "char_002",
-      "character_name": "มาลัย",
-      "character_profession": "นักสมุนไพร",
-      "bio_detail": "เชี่ยวชาญด้านพืชสมุนไพรในป่าลึก สามารถปรุงยาพิษและยาถอนพิษได้อย่างคล่องแคล่ว"
+      "character_id": "char_F002",
+      "character_name": "Meena V.",
+      "character_profession": "HR Coordinator",
+      "bio_detail": "Quiet and observant, Meena handles employee relations and knows many of the office's secrets. She harbors a secret affection for a colleague, making her work life a delicate balance."
     },
     {
-      "character_id": "char_003",
-      "character_name": "อาจารย์คุโระ",
-      "character_profession": "นักโบราณคดี",
-      "bio_detail": "นักโบราณคดีผู้รอบรู้เรื่องอารยธรรมโบราณและตำนานขุมทรัพย์ที่ถูกลืม"
+      "character_id": "char_F003",
+      "character_name": "Chompoo 'Pinky' K.",
+      "character_profession": "Creative Department Intern",
+      "bio_detail": "Young, bubbly, and talented, Pinky is new to the corporate world. Her naivety and eagerness to please might unknowingly draw her into the web of office romances and rivalries."
+    },
+    {
+      "character_id": "char_F004",
+      "character_name": "Siriporn 'Sue' L.",
+      "character_profession": "Finance Director",
+      "bio_detail": "Stern, meticulous, and a stickler for rules, Sue commands respect and a little fear. Few know about her own past forbidden office romance, which has shaped her guarded personality."
+    },
+    {
+      "character_id": "char_F005",
+      "character_name": "Nisa C.",
+      "character_profession": "Lead IT Technician",
+      "bio_detail": "Works late hours maintaining the company's digital infrastructure. Nisa sees and hears a lot more than people realize and is a discreet confidante for a select few, often helping them navigate tech-related secrecy."
+    },
+    {
+      "character_id": "char_M001",
+      "character_name": "Alex Chen",
+      "character_profession": "Expat Project Lead",
+      "bio_detail": "A charming and capable newcomer from Singapore, Alex is quickly making an impact. His friendly demeanor and foreign appeal have unintentionally made him the center of attention and workplace crushes, complicating his professional goals."
+    },
+    {
+      "character_id": "char_M002",
+      "character_name": "Vichai P.",
+      "character_profession": "Senior Sales Executive",
+      "bio_detail": "A charismatic and seasoned sales veteran, Vichai is married but known for his flirtatious behavior and rumored past indiscretions within the company. He thrives on the thrill of the chase."
     }
   ],
   "locations": [
     {
-      "location_id": "loc_001",
-      "location_name": "ป่าต้นน้ำ",
-      "location_type": "Jungle",
-      "location_detail": "ป่าดงดิบขนาดใหญ่ มีต้นไม้โบราณสูงเสียดฟ้า สัตว์ป่าหายาก และแม่น้ำที่เชี่ยวกราก เป็นที่ซ่อนของวิหารลับ"
+      "location_id": "loc_BKK001",
+      "location_name": "BCS Office - Sathorn CBD",
+      "location_type": "Corporate Office",
+      "location_detail": "The bustling headquarters of 'Bangkok Central Solutions', located in a prime skyscraper in Bangkok's Sathorn financial district. A place of ambition, deadlines, and hushed conversations in cubicles and meeting rooms."
     },
     {
-      "location_id": "loc_002",
-      "location_name": "เมืองเก่าใต้พิภพ",
-      "location_type": "Ruins",
-      "location_detail": "ซากปรักหักพังของอารยธรรมโบราณที่จมอยู่ใต้ดิน เต็มไปด้วยกับดักและปริศนาที่ยังไม่มีใครแก้ได้"
+      "location_id": "loc_BKK002",
+      "location_name": "BCS Office - 15th Floor Restroom",
+      "location_type": "Office Interior - Private",
+      "location_detail": "The newly renovated executive restroom on the 15th floor. Ironically, its perceived privacy makes it a hotspot for clandestine phone calls, secret tears, or brief, risky encounters away from prying eyes."
     },
     {
-      "location_id": "loc_003",
-      "location_name": "ถ้ำคริสตัล",
-      "location_type": "Cave",
-      "location_detail": "ถ้ำที่ผนังและเพดานเต็มไปด้วยคริสตัลเรืองแสง มีตำนานว่าใจกลางถ้ำมีแหล่งพลังงานลึกลับซ่อนอยู่"
+      "location_id": "loc_BKK003",
+      "location_name": "The Alchemist's Den (Sukhumvit Soi 11)",
+      "location_type": "Speakeasy Bar",
+      "location_detail": "A dimly lit, exclusive speakeasy bar hidden in a busy Sukhumvit alley. Perfect for discreet after-work drinks, secret dates, or celebrating deals away from the office's formal environment."
+    },
+    {
+      "location_id": "loc_BKK004",
+      "location_name": "Riverside Terrace Cafe (Chao Phraya)",
+      "location_type": "Cafe / Restaurant",
+      "location_detail": "An open-air cafe with stunning views of the Chao Phraya River. Often chosen for 'innocent' coffee meetings that might have a deeper agenda, or for quiet contemplation amidst the city's flow."
+    },
+    {
+      "location_id": "loc_BKK005",
+      "location_name": "Chatuchak Weekend Market",
+      "location_type": "Public Market",
+      "location_detail": "One of the world's largest outdoor markets. Its crowded, labyrinthine alleys offer a degree of anonymity, making it an unlikely but possible place for secret meetings or an escape from the weekday's pressures."
     }
   ]
 }
