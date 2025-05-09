@@ -24,11 +24,12 @@ def get_llm_and_tokenizer():
     
     model_kwargs = {
         "device_map": "auto",
-        "torch_dtype": torch.float16,  # หรือ torch.bfloat16 ถ้า GPU รองรับ
+        "torch_dtype": torch.bfloat16,  # ยังคงใช้ bfloat16 เพราะ GPU รองรับ
         "attn_implementation": "flash_attention_2",
+        # ใช้ 8-bit quantization แทน 4-bit
         "quantization_config": BitsAndBytesConfig(
             load_in_8bit=True,
-            bnb_8bit_compute_dtype=torch.float16
+            bnb_8bit_compute_dtype=torch.bfloat16
         )
     }
     
