@@ -1,0 +1,23 @@
+# environment.yaml
+name: Lifeforge
+channels:
+  - pytorch
+  - nvidia # For CUDA enabled PyTorch
+  - conda-forge
+  - huggingface
+dependencies:
+  - python=3.12
+  - pip
+  - pytorch >=2.0.0 # Command R examples often use newer PyTorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1 # เปลี่ยนเป็น 12.1 เพื่อให้สอดคล้องกับ CUDA 12.x ที่ไดรเวอร์รองรับ
+  - chromadb>=0.4.24
+  - sentence-transformers>=2.3.0 # หรือเวอร์ชันล่าสุดที่รองรับ Python 3.12
+  - transformers>=4.39.0 # หรือเวอร์ชันล่าสุดที่รองรับ Python 3.12
+  - accelerate>=0.29.0 # หรือเวอร์ชันล่าสุดที่รองรับ Python 3.12
+  - bitsandbytes>=0.43.0 # หรือเวอร์ชันล่าสุดที่รองรับ Python 3.12 และ CUDA 12.1
+  - python-dotenv>=1.0.0
+  - uvicorn
+  - pip:
+    - "chromadb[server,fastapi,uvicorn]"
