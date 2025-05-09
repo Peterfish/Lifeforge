@@ -1,0 +1,26 @@
+# requirements.txt
+
+# Core application dependencies
+python-dotenv>=1.0.0
+chromadb>=0.4.24
+sentence-transformers>=2.3.0
+transformers[torch]>=4.39.0 # [torch] indicates that PyTorch is a dependency
+accelerate>=0.29.0
+bitsandbytes>=0.43.0 # Make sure this version is compatible with your PyTorch CUDA build
+
+# PyTorch, torchvision, and torchaudio
+# IMPORTANT: If you are installing with pip, you MUST install PyTorch with the
+# correct CUDA version for your system MANUALLY first, or by using the --index-url.
+# For example, for CUDA 12.1, the command is typically:
+# pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# The versions below are for reference and align with environment.yaml.
+torch>=2.0.0
+torchvision
+torchaudio
+
+# Optional: For running ChromaDB as a server with UI
+uvicorn
+chromadb[server,fastapi,uvicorn]
+
+# Optional: If you plan to use the Cohere SDK directly
+# cohere
