@@ -19,19 +19,20 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 def get_llm_and_tokenizer():
     model_path = os.environ.get("LLM_PATH", "CohereLabs/c4ai-command-r-v01")
-    print(f"Loading LLM model and tokenizer: {model_path} on device: {DEVICE}...")
-    
+    print(f"Loading LLM model and tokenizer in 8-bit quantization mode: {model_path} on device: {DEVICE}...")
     _tokenizer = AutoTokenizer.from_pretrained(model_path)
-    _model = AutoModelForCausalLM.from_pretrained(
-        model_path,
-        device_map="auto",
-        # ลบบรรทัดนี้ออก: load_in_4bit=True,
-        quantization_config=BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16
-        )
-    )
     
+    model_kwargs = {
+        "device_map": "auto",
+        "torch_dtype": torch.float16,  # หรือ torch.bfloat16 ถ้า GPU รองรับ
+        "attn_implementation": "flash_attention_2",
+        "quantization_config": BitsAndBytesConfig(
+            load_in_8bit=True,
+            bnb_8bit_compute_dtype=torch.float16
+        )
+    }
+    
+    _model = AutoModelForCausalLM.from_pretrained(model_path, **model_kwargs)
     return _model, _tokenizer
 
 class StoryContextGenerator:
