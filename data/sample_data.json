@@ -1,0 +1,43 @@
+// data/sample_data.json
+{
+  "characters": [
+    {
+      "character_id": "char_001",
+      "character_name": "ธนา",
+      "character_profession": "นักสำรวจ",
+      "bio_detail": "นักสำรวจผู้กล้าหาญที่เดินทางข้ามป่าเขาเพื่อค้นหาเมืองโบราณที่ซ่อนสมบัติล้ำค่า"
+    },
+    {
+      "character_id": "char_002",
+      "character_name": "มาลัย",
+      "character_profession": "นักสมุนไพร",
+      "bio_detail": "เชี่ยวชาญด้านพืชสมุนไพรในป่าลึก สามารถปรุงยาพิษและยาถอนพิษได้อย่างคล่องแคล่ว"
+    },
+    {
+      "character_id": "char_003",
+      "character_name": "อาจารย์คุโระ",
+      "character_profession": "นักโบราณคดี",
+      "bio_detail": "นักโบราณคดีผู้รอบรู้เรื่องอารยธรรมโบราณและตำนานขุมทรัพย์ที่ถูกลืม"
+    }
+  ],
+  "locations": [
+    {
+      "location_id": "loc_001",
+      "location_name": "ป่าต้นน้ำ",
+      "location_type": "Jungle",
+      "location_detail": "ป่าดงดิบขนาดใหญ่ มีต้นไม้โบราณสูงเสียดฟ้า สัตว์ป่าหายาก และแม่น้ำที่เชี่ยวกราก เป็นที่ซ่อนของวิหารลับ"
+    },
+    {
+      "location_id": "loc_002",
+      "location_name": "เมืองเก่าใต้พิภพ",
+      "location_type": "Ruins",
+      "location_detail": "ซากปรักหักพังของอารยธรรมโบราณที่จมอยู่ใต้ดิน เต็มไปด้วยกับดักและปริศนาที่ยังไม่มีใครแก้ได้"
+    },
+    {
+      "location_id": "loc_003",
+      "location_name": "ถ้ำคริสตัล",
+      "location_type": "Cave",
+      "location_detail": "ถ้ำที่ผนังและเพดานเต็มไปด้วยคริสตัลเรืองแสง มีตำนานว่าใจกลางถ้ำมีแหล่งพลังงานลึกลับซ่อนอยู่"
+    }
+  ]
+}
