@@ -20,4 +20,4 @@ dependencies:
   - python-dotenv>=1.0.0
   - uvicorn
   - pip:
-    - "chromadb[server,fastapi,uvicorn]"
+      - "chromadb[server,fastapi,uvicorn]"

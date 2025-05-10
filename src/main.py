@@ -2,6 +2,7 @@
 import os
 import json
 from dotenv import load_dotenv
+import datetime
 
 # It's good practice to handle imports from within the src package using relative imports
 from .chromadb_manager import ChromaDBManager
@@ -24,6 +25,34 @@ def initialize_system():
     
     print("\n--- System Initialization Complete ---")
     return chroma_manager, story_context_generator
+
+def save_output_to_json(output_data, prompt, output_dir="output"):
+    """Saves the generated story elements to a JSON file"""
+    # Create output directory if it doesn't exist
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    # Create a timestamp for the filename
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    # Create a safe filename from the prompt (first 30 chars)
+    safe_prompt = "".join(c if c.isalnum() else "_" for c in prompt[:30]).rstrip("_")
+    
+    # Create the full output data with the prompt included
+    full_output = {
+        "prompt": prompt,
+        "timestamp": timestamp,
+        "story_elements": output_data
+    }
+    
+    # Create the filename
+    filename = f"{output_dir}/story_{timestamp}_{safe_prompt}.json"
+    
+    # Write to file
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(full_output, f, indent=2, ensure_ascii=False)
+    
+    return filename
 
 def main():
     chroma_manager, story_generator = initialize_system()
@@ -75,10 +104,14 @@ def main():
             "Locations": output_locations
         }
         
+        # Save the output to a JSON file
+        output_file = save_output_to_json(structured_output_for_display, story_details_prompt)
+        
         # Changed message to English
         print("\n--- AI Output (JSON format) ---")
         print(json.dumps(structured_output_for_display, indent=2, ensure_ascii=False)) # ensure_ascii=False is good for Thai names if they were mixed
         print("-----------------------------")
+        print(f"\nOutput saved to: {output_file}")
 
 if __name__ == "__main__":
     try:

@@ -4,22 +4,23 @@ This project demonstrates how to build a Retrieval Augmented Generation (RAG) sy
 
 ## Features
 
--   **Vector Database:** ChromaDB for storing and querying character/location embeddings.
--   **Embeddings:** `jina-embeddings-v2-base-en` for text embeddings.
--   **RAG with LLM Tool Use:** Integrates Cohere Command R model, which interprets story prompts and decides which database search tools to use via a precisely formatted tool-calling mechanism.
--   **Customizable Data:** Easy addition of character/location data via `data/sample_data.json`.
--   **Structured Output:** Generates output in a predefined JSON schema.
--   **Environment Management:** `environment.yaml` for Conda and `requirements.txt` for pip.
--   **Configurable:** `.env` file for model names, paths, and API tokens.
+- **Vector Database:** ChromaDB for storing and querying character/location embeddings.
+- **Embeddings:** `jina-embeddings-v2-base-en` for text embeddings.
+- **RAG with LLM Tool Use:** Integrates Cohere Command R model, which interprets story prompts and decides which database search tools to use via a precisely formatted tool-calling mechanism.
+- **Customizable Data:** Easy addition of character/location data via `data/sample_data.json`.
+- **Structured Output:** Generates output in a predefined JSON schema.
+- **Environment Management:** `environment.yaml` for Conda and `requirements.txt` for pip.
+- **Configurable:** `.env` file for model names, paths, and API tokens.
 
 ## Prerequisites
 
--   Conda (recommended) or Python **3.12** with pip.
--   NVIDIA GPU with appropriate drivers. The project is configured to use PyTorch with **CUDA 12.1**, so your drivers must support this CUDA version or newer.
--   Sufficient VRAM (RTX 4090 as specified by user is ample).
--   Hugging Face Hub Token (if `CohereLabs/c4ai-command-r-v01` is gated or requires it). Set in `.env`.
+- Conda (recommended) or Python **3.12** with pip.
+- NVIDIA GPU with appropriate drivers. The project is configured to use PyTorch with **CUDA 12.1**, so your drivers must support this CUDA version or newer.
+- Sufficient VRAM (RTX 4090 as specified by user is ample).
+- Hugging Face Hub Token (if `CohereLabs/c4ai-command-r-v01` is gated or requires it). Set in `.env`.
 
 ## Project Structure
+
 (โครงสร้างไฟล์เหมือนเดิม)
 
 ## Setup
@@ -29,6 +30,7 @@ This project demonstrates how to build a Retrieval Augmented Generation (RAG) sy
 2.  **Environment Setup (Choose Conda or Pip/Venv):**
 
     **A. Conda Environment (Recommended):**
+
     ```bash
     conda env create -f environment.yaml
     conda activate Lifeforge
@@ -36,6 +38,7 @@ This project demonstrates how to build a Retrieval Augmented Generation (RAG) sy
 
     **B. Pip with Virtual Environment:**
     If you prefer using pip and a virtual environment:
+
     ```bash
     # Create a virtual environment (e.g., named .venv)
     python -m venv .venv
@@ -56,6 +59,7 @@ This project demonstrates how to build a Retrieval Augmented Generation (RAG) sy
 
 3.  **Environment Variables (`.env`):**
     Create `.env` in the project root. Example:
+
     ```ini
     EMBEDDING_MODEL_NAME="jinaai/jina-embeddings-v2-base-en"
     LLM_MODEL_NAME="CohereLabs/c4ai-command-r-v01"
@@ -77,3 +81,4 @@ From the project's root directory, after activating your chosen environment (`Li
 
 ```bash
 python -m src.main
+```
